@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+  {% load static %}
+      <meta charset="UTF-8">
+      <title>SantoDatos</title>
+      <link rel="icon" href="{% static "img/logo.png"%}" type="image/x-icon">
+      <link rel="stylesheet" href="../static/css/style.css">
+      <script>
+        const botonCerrarSesion = () => {
+            if(window.confirm("¿Está Seguro De Querer Cerrar La Sesión?")){
+                window.location.href = "/cerrar";
+            }
+        }
+      </script>
+    <style>
+      .emprendimiento{
+              color:black;
+              font-family: Helvetica, Arial, sans-serif;
+              font-weight:500;
+              font-size: 18px;
+              border-radius: 5px;
+              line-height: 22px;
+              background-color: white;
+
+              transition: all 0.3s;
+              padding: 13px;
+              margin-bottom: 15px;
+              width:100%;
+              box-sizing: border-box;
+              outline:0;
+      }
+      .pymes{
+          background-image: linear-gradient(
+              rgba(0,0,0,0.7),
+              rgba(0,0,0,0.7)),
+              url(../static/img/pymes.png);
+              background-position:center center ;
+              background-repeat: repeat-y;
+              background-size: cover;
+              background-attachment: fixed;
+              padding: 100pxpx;
+              min-height: 100vh;
+          
+      }
+      .card-title {
+          color: #262626;
+          font-size: 1.5em;
+          line-height: normal;
+          font-weight: 700;
+          margin-bottom: 0.5em;
+        }
+        
+      .small-desc {
+          font-size: 1em;
+          font-weight: 400;
+          line-height: 1.5em;
+          color: #452c2c;
+        }
+        
+      .small-desc {
+          font-size: 1em;
+        }
+        
+      .go-corner {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: absolute;
+          width: 2em;
+          height: 2em;
+          overflow: hidden;
+          top: 0;
+          right: 0;
+          background: linear-gradient(135deg, #6293c8, #384c6c);
+          border-radius: 0 4px 0 32px;
+        }
+        
+      .go-arrow {
+          margin-top: -4px;
+          margin-right: -4px;
+          color: white;
+          font-family: courier, sans;
+        }
+        
+      .card {
+          display: block;
+          position: relative;
+          float: left;
+          max-width: 300px;
+          max-height: 320px;
+          border-radius: 10px;
+          padding: 2em 1.2em;
+          margin: 12px;
+          text-decoration: none;
+          z-index: 0;
+          overflow: hidden;
+          background: linear-gradient(to bottom, #c3e6ec, #a7d1d9);
+          font-family: Arial, Helvetica, sans-serif;
+        }
+        
+      .card:before {
+          content: '';
+          position: absolute;
+          z-index: -1;
+          top: -16px;
+          right: -16px;
+          background: linear-gradient(135deg, #364a60, #384c6c);
+          height: 32px;
+          width: 32px;
+          border-radius: 32px;
+          transform: scale(1);
+          transform-origin: 50% 50%;
+          transition: transform 0.35s ease-out;
+        }
+        
+      .card:hover:before {
+          transform: scale(28);
+        }
+        
+      .card:hover .small-desc {
+          transition: all 0.5s ease-out;
+          color: rgba(255, 255, 255, 0.8);
+        }
+        
+      .card:hover .card-title {
+          transition: all 0.5s ease-out;
+          color: #ffffff;
+        }
+        
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="menu container">
+            <img src="{%static "img/logo.png" %}" alt="SantoDatos" class="logo">
+            <input type="checkbox" id="menu" />
+            <label for="menu">
+                <img src="" class="menu-icono" alt="">
+            </label>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="/logueado">Inicio</a></li>
+                    <li><a href="/servicios" style="text-decoration: underline;">Servicios</a></li>
+                    <li><a href="/contacto">Contacto</a></li>
+                    <li><a href="#" onClick="botonCerrarSesion()">{{nomUsuario}}</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="header-content container">
+            <h1>
+                <strong>Sube tu pyme</strong>
+            </h1>
+
+            <form action='/pymes' method="post">  
+              {% csrf_token %}    
+              <input name="txtname" type="text" class="emprendimiento" placeholder="Nombre del emprendimiento" />   
+              <input name="txtnum" type="text" class="emprendimiento" placeholder="Ingresa un Contacto (numero, correo, etc)" />
+              <input name="txtarea" type="text" class="emprendimiento" placeholder="¿De que trata tu emprendimiento?" />
+              <button type="submit" class="btn1">SUBIR PYME</button>
+            </form>
+        </div>
+    </header>
+    
+    <main class="pymes">
+
+      {% if pym %}
+      
+      {% for pym in pym %}
+        <ul>
+          <li>
+            <div class="card">
+              <p class="card-title">{{pym.nombre}}</p>
+              <p class="small-desc">
+                Contacto: <strong>{{pym.contacto}}<strong>
+                <p class="small-desc">
+                  {{pym.descripcion}}
+                </p>
+              </p>
+              <div class="go-corner">
+                <div class="go-arrow">→</div>
+              </div>
+          </li>
+        </ul>
+      {% endfor %}
+    </main>
+    {% endif %}
+</body>
+</html>

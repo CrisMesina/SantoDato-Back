@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SantoDatos</title>
+    <link rel="icon" href="{%static "img/logo.png"%}" type="image/x-icon">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <script>
+        const botonCerrarSesion = () => {
+            if(window.confirm("¿Está Seguro De Querer Cerrar La Sesión?")){
+                window.location.href = "/cerrar";
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Quicksand:400,700');
+
+        html {
+            background-color: #ecf9ff;
+        }
+        .main{
+            background-image: linear-gradient(
+                rgba(0,0,0,0.7),
+                rgba(0,0,0,0.7)),
+                url(../static/img/serviciosbg.png);
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-attachment: fixed;
+                padding: 100px 0;
+        }
+
+        h1 {
+            font-size: 30px;
+            font-weight: 400;
+            text-align: center;
+            margin-bottom: 100px;
+            color: white;
+        }
+
+        img {
+            height: auto;
+            max-width: 100%;
+            vertical-align: middle;
+        }
+
+        .btn {
+            color: #ffffff;
+            padding: 0.8rem;
+            font-size: 14px;
+            text-transform: uppercase;
+            border-radius: 4px;
+            font-weight: 400;
+            display: block;
+            width: 100%;
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: transparent;
+        }
+
+        .btn:hover {
+            background-color: rgba(255, 255, 255, 0.12);
+        }
+
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .cards_item {
+            display: flex;
+            padding: 1rem;
+        }
+
+        @media (min-width: 40rem) {
+            .cards_item {
+                width: 50%;
+            }
+        }
+
+        @media (min-width: 56rem) {
+            .cards_item {
+                width: 33.3333%;
+            }
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 0.25rem;
+            box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .card_content {
+            padding: 1rem;
+            background: linear-gradient(to bottom left, #EF8D9C 40%, #FFC39E 100%);
+        }
+
+        .card_title {
+            color: #ffffff;
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: capitalize;
+            margin: 0px;
+        }
+
+        .card_text {
+            color: #ffffff;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            margin-bottom: 1.25rem;    
+            font-weight: 400;
+        }
+        .made_by{
+            font-weight: 400;
+            font-size: 13px;
+            margin-top: 35px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+
+        <div class="menu container">
+            <img src="{%static "img/logo.png"%}" alt="SantoDatos" class="logo">
+            <input type="checkbox" id="menu" />
+            <label for="menu">
+                <img src="" class="menu-icono" alt="">
+            </label>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="/logueado">Inicio</a></li>
+                    <li><a href="/servicios" style="text-decoration: underline;">Servicios</a></li>
+                    <li><a href="/contacto">Contacto</a></li>
+                    <li><a href="#" onClick="botonCerrarSesion()">{{nomUsuario}}</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="header-content container">
+            <h1>
+                Hospedajes
+            </h1>
+            <p>
+                Aqui podras ver algunos hospedajes cercanos a la institucion
+            </p>
+            <a href="#comida" class="btn1">PARA BAJAR CLICKAME</a>
+        </div>
+    </header>
+
+    
+
+    <div class="main" id="comida">
+        <h1>Hospedajes cercanos</h1>
+            <ul class="cards">
+            <li class="cards_item">
+                <div class="card">
+                <div class="card_image"><img src="{%static "img/hotel1.png"%}"></div>
+                <div class="card_content">
+                    <h2 class="card_title" style="text-align: center; margin-bottom: 35px;">iAparts Apartamentos Amoblados</h2>
+                    <p class="card_text">
+                        Un hotel de 3 estrellas, ubicado muy cerca del instituto. A un precio mas razonable que muchos otros hospedajes.
+                    </p>
+                    <a class="btn card_btn" target="_blank" href="https://www.google.com/maps/place/iAparts+Apartamentos+Amoblados/@-34.1718215,-70.7385202,17z/data=!4m23!1m11!2m10!1sHotels!3m5!2sSushi+mi+rolls!3s0x966343410899d967:0xaf892cc351f66e0e!4m2!1d-70.7368398!2d-34.1721074!5m2!5m1!1s2024-06-11!3m10!1s0x966343418fd2894b:0x5c98507af85ccd4f!5m3!1s2024-06-11!4m1!1i2!8m2!3d-34.1708503!4d-70.7354118!15sCgZIb3RlbHOSARxmdXJuaXNoZWRfYXBhcnRtZW50X2J1aWxkaW5n4AEA!16s%2Fg%2F11bxdthvh2?entry=ttu" style="text-align: center;">Ir a la ubicacion</a>
+                </div>
+                </div>
+            </li>
+            <li class="cards_item">
+                <div class="card">
+                <div class="card_image"><img src="{%static "img/hotel2.png"%}"></div>
+                <div class="card_content">
+                    <h2 class="card_title" style="text-align: center; margin-top: 34px;">Condominio los poetas</h2>
+                    <p class="card_text" style="text-align: center; margin: 31px;">
+                        Ubicado un poco mas alejado, pero no demasiado, de la institucion, esta los Condominios los Poetas.
+                    </p>
+                    <a class="btn card_btn" target="_blank" href="https://www.google.com/maps/place/Hospedaje+Rancagua/@-34.1691685,-70.7354428,16z/data=!4m25!1m13!2m12!1sHotels!3m5!2sSushi+mi+rolls!3s0x966343410899d967:0xaf892cc351f66e0e!4m2!1d-70.7368398!2d-34.1721074!5m4!5m3!1s2024-06-11!4m1!1i2!3m10!1s0x966343434b40ce21:0xe7077828a4f329d9!5m3!1s2024-06-11!4m1!1i2!8m2!3d-34.1721642!4d-70.7288155!15sCgZIb3RlbHOSAQVob3RlbOABAA!16s%2Fg%2F11dfgr7r3r?entry=ttu" style="text-align: center;">Ir a la ubicacion</a>
+                </div>
+                </div>
+            </li>
+            <li class="cards_item">
+                <div class="card">
+                <div class="card_image"><img src="{%static "img/hotel3.png"%}" style="margin-bottom: px; margin-top: 10px;"></div>
+                <div class="card_content">
+                    <h2 class="card_title">Hotel Diego Almagro</h2>
+                    <p class="card_text">
+                        Un hotel un poco mas alejado, el cual tiene 2 o 3 hoteles mas cercanos por si no pueden quedarse en este.
+                    </p>
+                    <a class="btn card_btn" target="_blank" href="https://www.google.com/maps/place/Hotel+Diego+de+Almagro+Rancagua/@-34.1664921,-70.7395466,17z/data=!4m25!1m13!2m12!1sHotels!3m5!2sSushi+mi+rolls!3s0x966343410899d967:0xaf892cc351f66e0e!4m2!1d-70.7368398!2d-34.1721074!5m4!5m3!1s2024-06-11!4m1!1i2!3m10!1s0x966343680fe595df:0x2f29693315c4cc29!5m3!1s2024-06-11!4m1!1i2!8m2!3d-34.1665172!4d-70.7350458!15sCgZIb3RlbHNaCCIGaG90ZWxzkgEFaG90ZWzgAQA!16s%2Fg%2F1tf_jmh1?entry=ttu" style="text-align: center;">Ir a la ubicacion</a>
+                </div>
+                </div>
+            </li>
+        </ul>
+      </div>
+
+</body>
+</html>

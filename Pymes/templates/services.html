@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>SantoDatos</title>
+    <link rel="icon" href="{% static "/img/logo.png" %}" type="image/x-icon">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <script>
+        const botonCerrarSesion = () => {
+            if(window.confirm("¿Está Seguro De Querer Cerrar La Sesión?")){
+                window.location.href = "/cerrar";
+            }
+        }
+    </script>
+</head>
+<body>
+    <header class="header-style">
+        <div class="menu container">
+            <img src="{% static "/img/logo.png" %}" alt="SantoDatos" class="logo">
+            <input type="checkbox" id="menu" />
+            <label for="menu">
+                <img src="" class="menu-icono" alt="">
+            </label>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="/logueado">Inicio</a></li>
+                    <li><a href="" style="text-decoration: underline;">Servicios</a></li>
+                    <li><a href="/contacto">Contacto</a></li>
+                    <li><a href="#" onClick="botonCerrarSesion()">{{ nomUsuario }}</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="header-content container">
+            <h1>Servicios</h1>
+            <p>Aqui encontraras lugares donde puedas comer, arriendos y hasta tips!<br>
+                SantoDato te otorga esa informacion totalmente gratis!! <br>  
+            </p>
+            <a href="#Servicios" class="btn1">Clickame para bajar!</a>
+        </div>
+    </header>
+
+
+    <main class="services">
+        <div class="services-content container">
+
+            <h2 id="Servicios">Servicios SantoDatos</h2>
+
+            <div class="services-group">
+
+                <div class="services-1">
+                    <img src="{% static "img/burger.png" %}" alt="">
+                    <h3>
+                        ¿Buscas donde comer? <br>
+                        <a href="/comida" style="color: aliceblue;">¡Presiona aqui!</a>
+                    </h3>
+                </div>
+
+                <div class="services-1">
+                    <img src="{% static "img/home.png"%}"alt="">
+                    <h3>
+                        ¿Buscas alojamiento? <br>
+                        <a href="/hospedajes" style="color: aliceblue;">¡Presiona aqui!</a>
+                    </h3>
+                </div>
+
+                <div class="services-1">
+                    <img src="{%static "img/dollar.png"%}" alt="">
+                    <h3>
+                        ¿Tienes una PYME? <br>
+                        <a href="/pymes" style="color: aliceblue;">¡Presiona aqui!</a>
+                    </h3>
+                </div>
+
+            </div>
+
+            <p>SantoDatos te ofrece servicos que a cualquier estudiante nuevo les gustaria saber en su primer dia o tal vez durante su estadia en la institucion</p>
+            <a href="/logueado" class="btn1">Volver al inicio</a>
+
+        </div>
+    </main>
+</body>
+</html>

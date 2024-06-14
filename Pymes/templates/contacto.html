@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+
+    <meta charset="UTF-8">
+    <title>SantoDatos</title>
+    <link rel="icon" href="{% static "img/logo.png" %}" type="image/x-icon">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <script>
+        const botonCerrarSesion = () => {
+            if(window.confirm("¿Está Seguro De Querer Cerrar La Sesión?")){
+                window.location.href = "/cerrar";
+            }
+        }
+    </script>
+</head>
+<body>
+    <header class="header">
+
+        <div class="menu container">
+            <img src="{%static "img/logo.png" %}" alt="SantoDatos" class="logo">
+            <input type="checkbox" id="menu" />
+            <label for="menu">
+                <img src="" class="menu-icono" alt="">
+            </label>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="/logueado">Inicio</a></li>
+                    <li><a href="/servicios">Servicios</a></li>
+                    <li><a href="" style="text-decoration: underline;">Contacto</a></li>
+                    <li><a href="#" onClick="botonCerrarSesion()">{{nomUsuario}}</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="header-content container">
+            <h1>
+                <strong>CONTACTO</strong>
+            </h1>
+            <p>¿Tienes algun problema con la pagina?<br>
+                ¿Te gustaria que se otorgara otro tipo de informacion? <br><br>
+                Contactanos al correo: <a href="" style="color:yellow">ejemplo.ejemplo@ejemplo.cl</a> <br>
+                Contactanos al numero: <a href="" style="color: yellow;">+569 1111 1111</a><br>
+                Contactanos en nuestro Instagram: <a href="www.instagram.com" style="color: yellow;">@SantoDatos</a>
+            </p>
+            <a href="" class="btn1">CONTACTANOS</a>
+        </div>
+    </header>
+
+</body>
+</html>

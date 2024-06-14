@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SantoDatos</title>
+    <link rel="icon" href="{%static "img/logo.png"%}" type="image/x-icon">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <script>
+        const botonCerrarSesion = () => {
+            if(window.confirm("¿Está Seguro De Querer Cerrar La Sesión?")){
+                window.location.href = "/cerrar";
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Quicksand:400,700');
+
+        html {
+            background-color: #ecf9ff;
+        }
+        .main{
+            background-image: linear-gradient(
+                rgba(0,0,0,0.7),
+                rgba(0,0,0,0.7)),
+                url(static/img/serviciosbg.png);
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-attachment: fixed;
+                padding: 100px 0;
+        }
+
+        h1 {
+            font-size: 30px;
+            font-weight: 400;
+            text-align: center;
+            margin-bottom: 100px;
+            color: white;
+        }
+
+        img {
+            height: auto;
+            max-width: 100%;
+            vertical-align: middle;
+        }
+
+        .btn {
+            color: #ffffff;
+            padding: 0.8rem;
+            font-size: 14px;
+            text-transform: uppercase;
+            border-radius: 4px;
+            font-weight: 400;
+            display: block;
+            width: 100%;
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: transparent;
+        }
+
+        .btn:hover {
+            background-color: rgba(255, 255, 255, 0.12);
+        }
+
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .cards_item {
+            display: flex;
+            padding: 1rem;
+        }
+
+        @media (min-width: 40rem) {
+            .cards_item {
+                width: 50%;
+            }
+        }
+
+        @media (min-width: 56rem) {
+            .cards_item {
+                width: 33.3333%;
+            }
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 0.25rem;
+            box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .card_content {
+            padding: 1rem;
+            background: linear-gradient(to bottom left, #EF8D9C 40%, #FFC39E 100%);
+        }
+
+        .card_title {
+            color: #ffffff;
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: capitalize;
+            margin: 0px;
+        }
+
+        .card_text {
+            color: #ffffff;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            margin-bottom: 1.25rem;    
+            font-weight: 400;
+        }
+        .made_by{
+            font-weight: 400;
+            font-size: 13px;
+            margin-top: 35px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+
+        <div class="menu container">
+            <img src="{%static "img/logo.png"%}" alt="SantoDatos" class="logo">
+            <input type="checkbox" id="menu" />
+            <label for="menu">
+                <img src="" class="menu-icono" alt="">
+            </label>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="/logueado">Inicio</a></li>
+                    <li><a href="/servicios" style="text-decoration: underline;">Servicios</a></li>
+                    <li><a href="/contacto">Contacto</a></li>
+                    <li><a href="#" onClick="botonCerrarSesion()">{{nomUsuario}}</a></li>
+
+                </ul>
+            </nav>
+        </div>
+        <div class="header-content container">
+            <h1>
+                Restaurantes cercanos
+            </h1>
+            <p>
+                Aqui podras ver algunos locales/restaurantes que esten cerca del instituto para poder ir a saciarte comiendo!
+            </p>
+            <a href="#comida" class="btn1">PARA BAJAR CLICKAME</a>
+        </div>
+    </header>
+
+    
+
+    <div class="main" id="comida">
+        <h1>Lugares para comer cercanos</h1>
+            <ul class="cards">
+            <li class="cards_item">
+                <div class="card">
+                <div class="card_image"><img src="{%static "img/local1.png"%}"></div>
+                <div class="card_content">
+                    <h2 class="card_title" style="text-align: center; margin-bottom: 21px;">Sushi mi rolls</h2>
+                    <p class="card_text">
+                        Eres fan del sushi y te apatece comer un poco antes de entrar en alguna clase?
+                        Prueba este local de sushi!
+                    </p>
+                    <a class="btn card_btn" href="https://www.google.com/maps/place/Sushi+mi+rolls/@-34.1720229,-70.7372024,19z/data=!4m14!1m7!3m6!1s0x96634338999e485d:0x902b6a637581fa12!2sSubway+El+Tenis!8m2!3d-34.172064!4d-70.7351264!16s%2Fg%2F11h4y64vm7!3m5!1s0x966343410899d967:0xaf892cc351f66e0e!8m2!3d-34.1721074!4d-70.7368398!16s%2Fg%2F11hdb15yms?entry=ttu" style="text-align: center;">Ir a la ubicacion</a>
+                </div>
+                </div>
+            </li>
+            <li class="cards_item">
+                <div class="card">
+                <div class="card_image"><img src="{%static "img/local2.png"%}"></div>
+                <div class="card_content">
+                    <h2 class="card_title" style="text-align: center; margin-bottom: 15px;">Subway el Tenis</h2>
+                    <p class="card_text">
+                        Por si quieres probar muchos tipos de comida, esta es tu mejor opcion sin duda alguna y queda
+                        bastante cerca de la institucion
+                    </p>
+                    <a class="btn card_btn" href="https://www.google.com/maps/place/Subway+El+Tenis/@-34.1722073,-70.735156,20z/data=!4m14!1m7!3m6!1s0x96634338999e485d:0x902b6a637581fa12!2sSubway+El+Tenis!8m2!3d-34.172064!4d-70.7351264!16s%2Fg%2F11h4y64vm7!3m5!1s0x96634338999e485d:0x902b6a637581fa12!8m2!3d-34.172064!4d-70.7351264!16s%2Fg%2F11h4y64vm7?entry=ttu" style="text-align: center;">Ir a la ubicacion</a>
+                </div>
+                </div>
+            </li>
+            <li class="cards_item">
+                <div class="card">
+                <div class="card_image"><img src="{%static "img/local3.png"%}"></div>
+                <div class="card_content">
+                    <h2 class="card_title">Peru Cheng</h2>
+                    <p class="card_text">
+                        Tienes ganas de probar comida peruana?
+                        Conoce este local que te podria venir bien!
+                    </p>
+                    <a class="btn card_btn" href="https://www.google.com/maps/place/Perú+Cheng/@-34.1708423,-70.7370488,18z/data=!4m10!1m2!2m1!1sRestaurants!3m6!1s0x966343418585f437:0x1d9b4cd7979bd331!8m2!3d-34.1708054!4d-70.7348074!15sCgtSZXN0YXVyYW50c1oNIgtyZXN0YXVyYW50c5IBE3BlcnV2aWFuX3Jlc3RhdXJhbnTgAQA!16s%2Fg%2F11f3r2z0d0?entry=ttu" style="text-align: center;">Ir a la ubicacion</a>
+                </div>
+                </div>
+            </li>
+        </ul>
+      </div>
+
+</body>
+</html>

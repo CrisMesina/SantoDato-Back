@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>SantoDatos</title>
+    <link rel="icon" href="{% static "img/logo.png" %}" type="image/x-icon">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <script>
+        const botonCerrarSesion = () => {
+            if(window.confirm("¿Está Seguro De Querer Cerrar La Sesión?")){
+                window.location.href = "/cerrar";
+            }
+        }
+    </script>
+</head>
+<body>
+    <header class="header">
+
+        <div class="menu container">
+            <img src="{% static "img/logo.png" %}" alt="SantoDatos" class="logo">
+            <input type="checkbox" id="menu" />
+            <label for="menu">
+                <img src="" class="menu-icono" alt="">
+            </label>
+            <nav class="navbar">
+                <ul>
+                    <li><a href=""style="text-decoration: underline;">Inicio</a></li>
+                    <li><a href="/servicios">Servicios</a></li>
+                    <li><a href="#">Contacto</a></li>
+                    <li><a href="#" onClick="botonCerrarSesion()">{{ nomUsuario }}</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="header-content container">
+            <h1>A tu alcance<br> 
+                <strong>VIVE LA EXPERIENCIA</strong>
+            </h1>
+            <p>¿Eres nuevo en Santo Tomas y necesitas informacion?<br>
+                SantoDato llega a tu rescate, averigua sobre arriendos, compra y venta, ayudantia, <br>
+                lugares cercanos para comer, entre otros...    
+            </p>
+            <a href="#" class="btn1">DESCUBRE</a>
+        </div>
+    </header>
+</body>
+</html>
