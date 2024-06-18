@@ -14,6 +14,63 @@
             }
         }
     </script>
+    
+    <style>
+        @media(max-width: 800px){
+
+            .menu{
+                padding: 30px;
+            }
+        
+            .menu label{
+                display: initial;
+            }
+        
+            .menu .navbar{
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: #323337;
+                display: none;
+            }
+        
+            .menu .navbar ul li{
+                width: 100%;
+            }
+        
+            #menu:checked ~ .navbar{
+                display: initial;
+            }
+        
+            .header{
+                min-height: 0vh;
+            }
+        
+            .header-content{
+                padding: 100px 30px;
+            }
+        
+            .header-content p{
+                padding: 0;
+            }
+            .services{
+                padding: 30px;
+            }
+            .services-content p{
+                padding: 0;
+            }
+            .services-group{
+                flex-direction: column;
+                margin-bottom: 0;
+            }
+            .services-1{
+                margin-bottom: 25px;
+            }
+        
+        
+        }
+    </style>
 </head>
 <body>
     <header class="header">
@@ -22,7 +79,7 @@
             <img src="{%static "img/logo.png" %}" alt="SantoDatos" class="logo">
             <input type="checkbox" id="menu" />
             <label for="menu">
-                <img src="" class="menu-icono" alt="">
+                <img src="{%static "img/menu.png" %}" class="menu-icono" alt="">
             </label>
             <nav class="navbar">
                 <ul>
@@ -37,13 +94,13 @@
             <h1>
                 <strong>CONTACTO</strong>
             </h1>
-            <p>¿Tienes algun problema con la pagina?<br>
-                ¿Te gustaria que se otorgara otro tipo de informacion? <br><br>
-                Contactanos al correo: <a href="" style="color:yellow">ejemplo.ejemplo@ejemplo.cl</a> <br>
-                Contactanos al numero: <a href="" style="color: yellow;">+569 1111 1111</a><br>
-                Contactanos en nuestro Instagram: <a href="www.instagram.com" style="color: yellow;">@SantoDatos</a>
+            <p>¿Tienes algún problema con la página?<br>
+                ¿Te gustaría que se otorgara otro tipo de información? <br><br>
+                Contáctanos al correo: al correo: <a href="" style="color:yellow">ejemplo.ejemplo@ejemplo.cl</a> <br>
+                Contáctanos al número: <a href="" style="color: yellow;">+569 1111 1111</a><br>
+                Contáctanos en nuestro Instagram: <a href="www.instagram.com" style="color: yellow;">@SantoDatos</a>
             </p>
-            <a href="" class="btn1">CONTACTANOS</a>
+            <a href="" class="btn1">Contáctanos</a>
         </div>
     </header>
 

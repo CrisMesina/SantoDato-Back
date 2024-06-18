@@ -23,12 +23,15 @@ def iniciarSesion(request):
             request.session["idUsuario"] = comprobarLogin[0]['id']
             request.session['nomUsuario'] = ema.upper()
             
-            datos = { 'nomUsuario': ema}
+            datos = {
+                'nomUsuario': ema,
+                'r' : 'Inicio de sesión completado con éxito'
+            }
 
             return render(request, 'indexlogin.html', datos)
         else:
             datos = {
-                'r2': 'ERROR DE USUARIO'
+                'r2': '¡Datos incorrectos!'
             }
             return render(request, 'iniciarsesion.html', datos)
     else:
@@ -54,6 +57,11 @@ def mostrarContacto(request):
         return render(request,'index.html')
     
 
+def mostrarContactoNoLogin(request):
+    return render(request, 'contactoNoLogin.html')
+
+    
+
 
 def mostrarRegistro(request):
     return render(request, 'register.html')
@@ -65,6 +73,10 @@ def crearUsuario(request):
         pas = request.POST['txtpass']
         usu = Usuarios(name = nom, email = ema, password = pas)
         usu.save()
+
+        datos = {
+            'r':  'Cuenta creada, INICIA SESIÓN'
+        }
 
         return render(request, 'iniciarsesion.html')
     else:
@@ -116,17 +128,12 @@ def mostrarPymes(request):
     estadoSesion = request.session.get("estadoSesion")
     nomUsuario = request.session.get("nomUsuario")
     if estadoSesion is True:
-        datos = {'nomUsuario' : nomUsuario} 
+        pym = Pymes.objects.all()
+        datos = {
+            'nomUsuario' : nomUsuario,
+            'pym' : pym
+        } 
         return render(request, 'pymes.html', datos)
-    else:
-        return render(request,'index.html')
-
-def FormRegistroPymes(request):
-    estadoSesion = request.session.get("estadoSesion")
-    nomUsuario = request.session.get("nomUsuario")
-    if estadoSesion is True:
-        datos = {'nomUsuario' : nomUsuario} 
-        return render(request, 'formpymes.html', datos)
     else:
         return render(request,'index.html')
 
@@ -140,9 +147,11 @@ def registarPymes(request):
         comprobarPyme = Pymes.objects.filter(nombre = nom)
 
         if comprobarPyme:
+            pym = Pymes.objects.all().values().order_by("nombre")
             datos = {
                 'nomUsuario' : request.session["nomUsuario"],
-                'r2': 'NO SE PUEDE REGISTRAR, YA EXISTE!!!'
+                'pym': pym,
+                'r2': 'No se puede registrar, ya existe!'
             }
             return render(request, 'pymes.html', datos)
         else:
@@ -153,12 +162,13 @@ def registarPymes(request):
             datos = {
                 'nomUsuario' : request.session["nomUsuario"],
                 'pym' : pym,
+                'r': '¡¡¡Pyme ingresada con éxito!!!'
             }
             return render(request, 'pymes.html', datos)
     else:
-        pym = Pymes.objects.all().values().order_by("id")
+        pym = Pymes.objects.all().values().order_by("nombre")
         datos = {
             'nomUsuario': request.session["nomUsuario"],
             'pym' : pym,
         }
-        return render(request, 'pymes.html', datos)
+        return render(request, 'services.html', datos)

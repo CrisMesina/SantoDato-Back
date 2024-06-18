@@ -2,13 +2,19 @@
 <html lang="en">
 <head>
     {% load static %}
+
     <meta charset="UTF-8">
     <title>SantoDatos</title>
     <link rel="icon" href="{% static "img/logo.png" %}" type="image/x-icon">
     <link rel="stylesheet" href="../static/css/style.css">
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/css/alertify.min.css"/>
-    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/alertify.min.js"></script>
-
+    <script>
+        const botonCerrarSesion = () => {
+            if(window.confirm("¿Está Seguro De Querer Cerrar La Sesión?")){
+                window.location.href = "/cerrar";
+            }
+        }
+    </script>
+    
     <style>
         @media(max-width: 800px){
 
@@ -67,17 +73,6 @@
     </style>
 </head>
 <body>
-    {% if r %}
-      <script>
-          alertify.success('{{r}}');
-      </script>
-      {% endif %}
-      {% if r2 %}
-      <script>
-          alertify.error('{{r2}}');
-      </script>
-      {% endif %}
-    
     <header class="header">
 
         <div class="menu container">
@@ -88,23 +83,26 @@
             </label>
             <nav class="navbar">
                 <ul>
-                    <li><a href=""style="text-decoration: underline; margin-right: 350px">Inicio</a></li>
-                    <li><a href="/contactanos">Contacto</a></li>
-                    <li><a href="/login">Iniciar Sesión</a></li>
+                    <li><a href="/" style="margin-right: 300px">Inicio</a></li>
+                    <li><a href="/contacto" style="text-decoration: underline;">Contacto</a></li>
+                    <li><a href="/login">Iniciar Sesion</a></li>
                     <li><a href="/registro">Registro</a></li>
                 </ul>
             </nav>
         </div>
         <div class="header-content container">
-            <h1>A tu alcance<br> 
-                <strong>VIVE LA EXPERIENCIA</strong>
+            <h1>
+                <strong>CONTACTO</strong>
             </h1>
-            <p>¿Eres nuevo en Santo Tomás y necesitas información?<br>
-                SantoDato llega a tu rescate. Averigua sobre arriendos, compra y venta, ayudantía,
-                lugares cercanos para comer, entre otros...  
+            <p>¿Tienes algún problema con la página?<br>
+                ¿Te gustaría que se otorgara otro tipo de información? <br><br>
+                Contáctanos al correo: <a href="" style="color:yellow">ejemplo.ejemplo@ejemplo.cl</a> <br>
+                Contáctanos al número: <a href="" style="color: yellow;">+569 1111 1111</a><br>
+                Contáctanos en nuestro Instagram: <a href="www.instagram.com" style="color: yellow;">@SantoDatos</a>
             </p>
-            <a href="/login" class="btn1">INICIA SESIÓN PARA MÁS</a>
+            <a href="" class="btn1">CONTACTANOS</a>
         </div>
     </header>
+
 </body>
 </html>

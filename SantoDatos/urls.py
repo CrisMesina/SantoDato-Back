@@ -23,6 +23,7 @@ urlpatterns = [
     path('', views.index),
     path('login', views.formLogin),
     path('contacto', views.mostrarContacto),
+    path('contactanos', views.mostrarContactoNoLogin),
     path('registro',views.mostrarRegistro),
     path('isRegister', views.crearUsuario),
     path('isLogin', views.iniciarSesion),

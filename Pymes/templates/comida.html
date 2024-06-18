@@ -16,6 +16,63 @@
     </script>
     <style>
         @import url('https://fonts.googleapis.com/css?family=Quicksand:400,700');
+        @media(max-width: 800px){
+
+            .menu{
+                padding: 30px;
+            }
+        
+            .menu label{
+                display: initial;
+            }
+        
+            .menu .navbar{
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: #323337;
+                display: none;
+            }
+        
+            .menu .navbar ul li{
+                width: 100%;
+            }
+        
+            #menu:checked ~ .navbar{
+                display: initial;
+            }
+        
+            .header{
+                min-height: 0vh;
+            }
+        
+            .header-content{
+                padding: 100px 30px;
+            }
+        
+            .header-content p{
+                padding: 0;
+            }
+            .services{
+                padding: 30px;
+            }
+            .services-content p{
+                padding: 0;
+            }
+            .services-group{
+                flex-direction: column;
+                margin-bottom: 0;
+            }
+            .services-1{
+                margin-bottom: 25px;
+            }
+        
+        
+        }
+
+        
+
 
         html {
             background-color: #ecf9ff;
@@ -134,7 +191,7 @@
             <img src="{%static "img/logo.png"%}" alt="SantoDatos" class="logo">
             <input type="checkbox" id="menu" />
             <label for="menu">
-                <img src="" class="menu-icono" alt="">
+                <img src="{%static "img/menu.png" %}" class="menu-icono" alt="">
             </label>
             <nav class="navbar">
                 <ul>
@@ -151,9 +208,8 @@
                 Restaurantes cercanos
             </h1>
             <p>
-                Aqui podras ver algunos locales/restaurantes que esten cerca del instituto para poder ir a saciarte comiendo!
-            </p>
-            <a href="#comida" class="btn1">PARA BAJAR CLICKAME</a>
+                Aquí podrás ver algunos locales/restaurantes que estén cerca del instituto para poder ir a saciarte comiendo.            
+                <br><br><a href="#comida" class="btn1">PARA BAJAR CLICKAME</a>
         </div>
     </header>
 
@@ -168,10 +224,10 @@
                 <div class="card_content">
                     <h2 class="card_title" style="text-align: center; margin-bottom: 21px;">Sushi mi rolls</h2>
                     <p class="card_text">
-                        Eres fan del sushi y te apatece comer un poco antes de entrar en alguna clase?
-                        Prueba este local de sushi!
+                        ¿Eres fan del sushi y te apetece comer un poco antes de entrar en alguna clase?
+                        ¡Prueba este local de sushi!
                     </p>
-                    <a class="btn card_btn" href="https://www.google.com/maps/place/Sushi+mi+rolls/@-34.1720229,-70.7372024,19z/data=!4m14!1m7!3m6!1s0x96634338999e485d:0x902b6a637581fa12!2sSubway+El+Tenis!8m2!3d-34.172064!4d-70.7351264!16s%2Fg%2F11h4y64vm7!3m5!1s0x966343410899d967:0xaf892cc351f66e0e!8m2!3d-34.1721074!4d-70.7368398!16s%2Fg%2F11hdb15yms?entry=ttu" style="text-align: center;">Ir a la ubicacion</a>
+                    <a class="btn card_btn" target='_blank' href="https://www.google.com/maps/place/Sushi+mi+rolls/@-34.1720229,-70.7372024,19z/data=!4m14!1m7!3m6!1s0x96634338999e485d:0x902b6a637581fa12!2sSubway+El+Tenis!8m2!3d-34.172064!4d-70.7351264!16s%2Fg%2F11h4y64vm7!3m5!1s0x966343410899d967:0xaf892cc351f66e0e!8m2!3d-34.1721074!4d-70.7368398!16s%2Fg%2F11hdb15yms?entry=ttu" style="text-align: center;">Ir a la ubicacion</a>
                 </div>
                 </div>
             </li>
@@ -181,10 +237,10 @@
                 <div class="card_content">
                     <h2 class="card_title" style="text-align: center; margin-bottom: 15px;">Subway el Tenis</h2>
                     <p class="card_text">
-                        Por si quieres probar muchos tipos de comida, esta es tu mejor opcion sin duda alguna y queda
-                        bastante cerca de la institucion
+                        Si quieres probar muchos tipos de comida, esta es tu mejor opción sin duda alguna y queda
+                        bastante cerca de la institución.
                     </p>
-                    <a class="btn card_btn" href="https://www.google.com/maps/place/Subway+El+Tenis/@-34.1722073,-70.735156,20z/data=!4m14!1m7!3m6!1s0x96634338999e485d:0x902b6a637581fa12!2sSubway+El+Tenis!8m2!3d-34.172064!4d-70.7351264!16s%2Fg%2F11h4y64vm7!3m5!1s0x96634338999e485d:0x902b6a637581fa12!8m2!3d-34.172064!4d-70.7351264!16s%2Fg%2F11h4y64vm7?entry=ttu" style="text-align: center;">Ir a la ubicacion</a>
+                    <a class="btn card_btn" target='_blank' href="https://www.google.com/maps/place/Subway+El+Tenis/@-34.1722073,-70.735156,20z/data=!4m14!1m7!3m6!1s0x96634338999e485d:0x902b6a637581fa12!2sSubway+El+Tenis!8m2!3d-34.172064!4d-70.7351264!16s%2Fg%2F11h4y64vm7!3m5!1s0x96634338999e485d:0x902b6a637581fa12!8m2!3d-34.172064!4d-70.7351264!16s%2Fg%2F11h4y64vm7?entry=ttu" style="text-align: center;">Ir a la ubicacion</a>
                 </div>
                 </div>
             </li>
@@ -194,10 +250,10 @@
                 <div class="card_content">
                     <h2 class="card_title">Peru Cheng</h2>
                     <p class="card_text">
-                        Tienes ganas de probar comida peruana?
-                        Conoce este local que te podria venir bien!
+                        ¿Tienes ganas de probar comida peruana?
+                        ¡Conoce este local que te podría venir bien!
                     </p>
-                    <a class="btn card_btn" href="https://www.google.com/maps/place/Perú+Cheng/@-34.1708423,-70.7370488,18z/data=!4m10!1m2!2m1!1sRestaurants!3m6!1s0x966343418585f437:0x1d9b4cd7979bd331!8m2!3d-34.1708054!4d-70.7348074!15sCgtSZXN0YXVyYW50c1oNIgtyZXN0YXVyYW50c5IBE3BlcnV2aWFuX3Jlc3RhdXJhbnTgAQA!16s%2Fg%2F11f3r2z0d0?entry=ttu" style="text-align: center;">Ir a la ubicacion</a>
+                    <a class="btn card_btn" target='_blank' href="https://www.google.com/maps/place/Perú+Cheng/@-34.1708423,-70.7370488,18z/data=!4m10!1m2!2m1!1sRestaurants!3m6!1s0x966343418585f437:0x1d9b4cd7979bd331!8m2!3d-34.1708054!4d-70.7348074!15sCgtSZXN0YXVyYW50c1oNIgtyZXN0YXVyYW50c5IBE3BlcnV2aWFuX3Jlc3RhdXJhbnTgAQA!16s%2Fg%2F11f3r2z0d0?entry=ttu" style="text-align: center;">Ir a la ubicacion</a>
                 </div>
                 </div>
             </li>

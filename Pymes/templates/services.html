@@ -13,6 +13,63 @@
             }
         }
     </script>
+    
+    <style>
+        @media(max-width: 800px){
+
+            .menu{
+                padding: 30px;
+            }
+        
+            .menu label{
+                display: initial;
+            }
+        
+            .menu .navbar{
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: #323337;
+                display: none;
+            }
+        
+            .menu .navbar ul li{
+                width: 100%;
+            }
+        
+            #menu:checked ~ .navbar{
+                display: initial;
+            }
+        
+            .header{
+                min-height: 0vh;
+            }
+        
+            .header-content{
+                padding: 100px 30px;
+            }
+        
+            .header-content p{
+                padding: 0;
+            }
+            .services{
+                padding: 30px;
+            }
+            .services-content p{
+                padding: 0;
+            }
+            .services-group{
+                flex-direction: column;
+                margin-bottom: 0;
+            }
+            .services-1{
+                margin-bottom: 25px;
+            }
+        
+        
+        }
+    </style>
 </head>
 <body>
     <header class="header-style">
@@ -20,7 +77,7 @@
             <img src="{% static "/img/logo.png" %}" alt="SantoDatos" class="logo">
             <input type="checkbox" id="menu" />
             <label for="menu">
-                <img src="" class="menu-icono" alt="">
+                <img src="{%static "img/menu.png" %}" class="menu-icono" alt="">
             </label>
             <nav class="navbar">
                 <ul>
@@ -32,11 +89,12 @@
             </nav>
         </div>
         <div class="header-content container">
-            <h1>Servicios</h1>
-            <p>Aqui encontraras lugares donde puedas comer, arriendos y hasta tips!<br>
-                SantoDato te otorga esa informacion totalmente gratis!! <br>  
-            </p>
-            <a href="#Servicios" class="btn1">Clickame para bajar!</a>
+            </p><h1>Servicios</h1>
+            <p>Aquí encontrarás lugares donde puedas comer, arriendos y hasta tips<br>
+                ¡¡SantoDato te otorga esa información totalmente gratis!! <br>  
+                <br>
+
+            <a href="#Servicios" class="btn1">Clickame para bajar</a>
         </div>
     </header>
 
@@ -51,7 +109,7 @@
                 <div class="services-1">
                     <img src="{% static "img/burger.png" %}" alt="">
                     <h3>
-                        ¿Buscas donde comer? <br>
+                        ¿Buscas dónde comer? <br>
                         <a href="/comida" style="color: aliceblue;">¡Presiona aqui!</a>
                     </h3>
                 </div>
@@ -68,13 +126,13 @@
                     <img src="{%static "img/dollar.png"%}" alt="">
                     <h3>
                         ¿Tienes una PYME? <br>
-                        <a href="/pymes" style="color: aliceblue;">¡Presiona aqui!</a>
+                        <a href="/m_pymes" style="color: aliceblue;">¡Presiona aqui!</a>
                     </h3>
                 </div>
 
             </div>
 
-            <p>SantoDatos te ofrece servicos que a cualquier estudiante nuevo les gustaria saber en su primer dia o tal vez durante su estadia en la institucion</p>
+            <p>SantoDatos te ofrece servicios que a cualquier estudiante nuevo les gustaría saber en su primer día o tal vez durante su estadía en la institución</p>
             <a href="/logueado" class="btn1">Volver al inicio</a>
 
         </div>
